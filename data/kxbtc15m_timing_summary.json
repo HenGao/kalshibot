@@ -1,0 +1,92 @@
+{
+  "series_ticker": "KXBTC15M",
+  "generated_at_utc": "2026-04-11T23:55:11.555083+00:00",
+  "markets_cap": 2,
+  "markets_distinct": 2,
+  "total_trades_written": 10086,
+  "overall_taker_win_rate": 0.4851,
+  "buckets_seconds_before_close": [
+    "0-30s",
+    "30-60s",
+    "60-120s",
+    "120-180s",
+    "180-300s",
+    "300-450s",
+    "450-600s",
+    "600-900s",
+    ">=900s"
+  ],
+  "by_bucket": [
+    {
+      "time_bucket": "0-30s",
+      "trade_count": 12,
+      "taker_win_count": 0,
+      "taker_win_rate": 0.0,
+      "contracts": 1560.37,
+      "taker_win_contracts": 0.0
+    },
+    {
+      "time_bucket": "30-60s",
+      "trade_count": 25,
+      "taker_win_count": 5,
+      "taker_win_rate": 0.2,
+      "contracts": 5898.35,
+      "taker_win_contracts": 74.9
+    },
+    {
+      "time_bucket": "60-120s",
+      "trade_count": 254,
+      "taker_win_count": 70,
+      "taker_win_rate": 0.2756,
+      "contracts": 19137.21,
+      "taker_win_contracts": 4835.22
+    },
+    {
+      "time_bucket": "120-180s",
+      "trade_count": 533,
+      "taker_win_count": 239,
+      "taker_win_rate": 0.4484,
+      "contracts": 28358.43,
+      "taker_win_contracts": 12398.51
+    },
+    {
+      "time_bucket": "180-300s",
+      "trade_count": 1494,
+      "taker_win_count": 710,
+      "taker_win_rate": 0.4752,
+      "contracts": 57911.32,
+      "taker_win_contracts": 26112.29
+    },
+    {
+      "time_bucket": "300-450s",
+      "trade_count": 1764,
+      "taker_win_count": 745,
+      "taker_win_rate": 0.4223,
+      "contracts": 75421.9,
+      "taker_win_contracts": 30110.65
+    },
+    {
+      "time_bucket": "450-600s",
+      "trade_count": 1644,
+      "taker_win_count": 782,
+      "taker_win_rate": 0.4757,
+      "contracts": 51903.93,
+      "taker_win_contracts": 26124.73
+    },
+    {
+      "time_bucket": "600-900s",
+      "trade_count": 4360,
+      "taker_win_count": 2342,
+      "taker_win_rate": 0.5372,
+      "contracts": 120846.74,
+      "taker_win_contracts": 64849.28
+    }
+  ],
+  "caveats": [
+    "taker_won means the aggressive side matched at settlement; it is not your PnL or a tradeable rule.",
+    "Win-rate by bucket mixes all prices; high win rates near close often coincide with cheap lottery tickets.",
+    "Past timing distributions are not a validated forward strategy \u2014 test out-of-sample with costs.",
+    "yes_price / outcome_yes / taker_pnl_per_contract support ML; pnl ignores fees.",
+    "Train with a group split on market_ticker so rows from the same market stay in one fold."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "feature_names": [
+    "log1p_seconds_before_close",
+    "yes_price"
+  ],
+  "coef": [
+    0.13931754254103995,
+    0.8114904131869687
+  ],
+  "intercept": -0.7418518987351013,
+  "means": [
+    5.9416212816945775,
+    0.4656204240516739
+  ],
+  "stds": [
+    0.8333092360209701,
+    0.2995002689179882
+  ],
+  "meta": {
+    "train_rows": 36222,
+    "test_rows": 7974,
+    "train_markets": 6,
+    "test_markets": 2,
+    "roc_auc_holdout": 0.9968903544812039,
+    "source_csv": "data/kxbtc15m_trades_enriched.csv"
+  }
+}

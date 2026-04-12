@@ -1,0 +1,12 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+
+# Regenerate with: python scripts/kalshi_btc_trade_timing.py
+data/*_trades_enriched.csv
+data/edge_bot_state.json
+data/bot_state/
+data/paper_wallet.json
+data/test_sim_metrics.jsonl
+data/live_metrics.jsonl
+.env

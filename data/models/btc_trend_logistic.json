@@ -1,0 +1,46 @@
+{
+  "model_type": "hist_gradient_boosting",
+  "feature_names": [
+    "ret_5m",
+    "ret_15m",
+    "ret_1h",
+    "ret_6h",
+    "dist_pct",
+    "log1p_seconds_before_close",
+    "vol_15m",
+    "vol_1h",
+    "range_15m_pct",
+    "path_extreme_pct",
+    "dist_x_vol15",
+    "ret15_x_logsec",
+    "book_yes_spread",
+    "book_yes_imbalance",
+    "hour_utc_sin",
+    "hour_utc_cos",
+    "dow_sin",
+    "dow_cos",
+    "vol_15m_z"
+  ],
+  "sklearn_joblib": "btc_trend_logistic.joblib",
+  "meta": {
+    "train_rows": 7062,
+    "val_rows": 1320,
+    "roc_auc_val": 0.8961916109377832,
+    "source": "KXBTC15M settled + Coinbase (tape or synthetic decision time)",
+    "feature_schema": "v3",
+    "tape_aligned": false,
+    "val_after_iso": null,
+    "target_sec": 120.0,
+    "days": 120,
+    "sample_weight": "none",
+    "split_mode": "val_last_days",
+    "val_cutoff_unix": 1774757986,
+    "val_last_days_config": 14.0,
+    "skipped_nonfinite": 0,
+    "platt_enabled": true
+  },
+  "platt_logit": {
+    "coef": 1.0090179443677654,
+    "intercept": -0.023483369374296306
+  }
+}
