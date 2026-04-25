@@ -1,0 +1,16 @@
+{
+  "balance": "49.4277",
+  "starting_capital": "50",
+  "positions": {
+    "KXBTC15M-26APR121545-45": "-1"
+  },
+  "bot_states": {
+    "KXBTC15M-26APR121545-45": {
+      "ticker": "KXBTC15M-26APR121545-45",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.5550",
+      "order_id": "paper-02c52328-e514-4f7a-829f-7f98825fcf60"
+    }
+  }
+}

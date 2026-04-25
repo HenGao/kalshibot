@@ -1,0 +1,96 @@
+{
+  "balance": "24.0757",
+  "starting_capital": "50",
+  "positions": {
+    "KXBTC15M-26APR141400-00": "-1",
+    "KXBTC-26APR1414-T79799.99": "1",
+    "KXBTC15M-26APR141415-15": "-1",
+    "KXBTC15M-26APR141700-00": "-1",
+    "KXBTC-26APR1419-T79799.99": "1",
+    "KXBTC15M-26APR141900-00": "-1",
+    "KXBTC15M-26APR141945-45": "-1",
+    "KXBTC-26APR1423-T79799.99": "1",
+    "KXBTC-26APR1501-T83799.99": "1",
+    "KXBTC-26APR1517-T84249.99": "1",
+    "KXBTC15M-26APR150415-15": "-1"
+  },
+  "bot_states": {
+    "KXBTC15M-26APR141400-00": {
+      "ticker": "KXBTC15M-26APR141400-00",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0400",
+      "order_id": "paper-5970c00e-db35-4cdc-95a8-376ede8be70c"
+    },
+    "KXBTC-26APR1414-T79799.99": {
+      "ticker": "KXBTC-26APR1414-T79799.99",
+      "side": "yes",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0100",
+      "order_id": "paper-5b38a5cf-c7e9-46c7-b363-193bb109f1c1"
+    },
+    "KXBTC15M-26APR141415-15": {
+      "ticker": "KXBTC15M-26APR141415-15",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.4000",
+      "order_id": "paper-40b2b244-32fa-4439-9eee-779af8bc3f54"
+    },
+    "KXBTC15M-26APR141700-00": {
+      "ticker": "KXBTC15M-26APR141700-00",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.3200",
+      "order_id": "paper-790ffe55-b8df-40ad-96a8-34d8bf71bc65"
+    },
+    "KXBTC-26APR1419-T79799.99": {
+      "ticker": "KXBTC-26APR1419-T79799.99",
+      "side": "yes",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0100",
+      "order_id": "paper-d943938f-18f9-48a6-9332-dd69ae6cd75c"
+    },
+    "KXBTC15M-26APR141900-00": {
+      "ticker": "KXBTC15M-26APR141900-00",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0010",
+      "order_id": "paper-3caa24b9-28aa-479f-b1db-a6a253e74b85"
+    },
+    "KXBTC15M-26APR141945-45": {
+      "ticker": "KXBTC15M-26APR141945-45",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.1100",
+      "order_id": "paper-ecf2581a-b337-45bd-8c67-2846c9a67f96"
+    },
+    "KXBTC-26APR1423-T79799.99": {
+      "ticker": "KXBTC-26APR1423-T79799.99",
+      "side": "yes",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0100",
+      "order_id": "paper-007524ad-101c-4fd6-94b7-3b0fb5103994"
+    },
+    "KXBTC-26APR1501-T83799.99": {
+      "ticker": "KXBTC-26APR1501-T83799.99",
+      "side": "yes",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0100",
+      "order_id": "paper-df669b8c-930e-41de-b005-003a66622369"
+    },
+    "KXBTC-26APR1517-T84249.99": {
+      "ticker": "KXBTC-26APR1517-T84249.99",
+      "side": "yes",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0100",
+      "order_id": "paper-2de3e00e-013a-41a2-8573-58df13bfcf29"
+    },
+    "KXBTC15M-26APR150415-15": {
+      "ticker": "KXBTC15M-26APR150415-15",
+      "side": "no",
+      "contracts": "1",
+      "entry_ask_dollars": "0.0500",
+      "order_id": "paper-bb566a83-bad3-4873-b795-6cfc57a6fc49"
+    }
+  }
+}

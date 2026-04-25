@@ -98,10 +98,23 @@ def public_get(
     path: str,
     *,
     base_url: str = "https://api.elections.kalshi.com/trade-api/v2",
+    retries: int = 4,
 ) -> Any:
     """Unauthenticated GET (market data). Path is relative to base_url, e.g. markets/FOO/orderbook."""
     url = base_url.rstrip("/") + "/" + path.lstrip("/")
-    resp = requests.get(url, timeout=60)
-    if resp.status_code >= 400:
-        raise RuntimeError(f"GET {url} -> {resp.status_code}: {resp.text}")
-    return resp.json()
+    last: BaseException | None = None
+    for attempt in range(max(1, retries)):
+        try:
+            resp = requests.get(url, timeout=60)
+            if resp.status_code >= 400:
+                raise RuntimeError(f"GET {url} -> {resp.status_code}: {resp.text}")
+            return resp.json()
+        except RuntimeError:
+            raise
+        except (requests.RequestException, OSError) as e:
+            last = e
+            if attempt < retries - 1:
+                time.sleep(0.5 * (2**attempt))
+            else:
+                raise
+    raise last  # pragma: no cover

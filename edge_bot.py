@@ -11,9 +11,10 @@ sell) if (entry_ask - current_yes_bid) / entry_ask >= stop fraction.
 
 Multi-market:
   - Default **KXBTC15M only** (``--auto-markets`` defaults to ``15m``, or env
-    ``KALSHI_AUTO_MARKETS``). Use ``hourly``, ``both``, or ``btc`` (alias for both)
-    to include **KXBTC** hourly range. Auto mode re-discovers the **current** open
-    contract each poll (soonest close_time).
+    ``KALSHI_AUTO_MARKETS``). Tokens: ``hourly`` (**KXBTC**), ``daily`` (**KXBTCD**),
+    ``both`` (15m+hourly), ``all`` or ``btc`` (15m+hourly+daily). Comma mix e.g.
+    ``15m,hourly,daily``. Auto mode picks the open contract with soonest close_time
+    per series.
   - Explicit ``--ticker`` / ``KALSHI_MARKET_TICKER`` overrides auto-markets.
   - Per-ticker state under --state-dir (default data/bot_state/).
 
@@ -27,6 +28,14 @@ Paper trading:
     row (NAV + PnL vs starting stake). Per-ticker "equity" in JSONL is
     bid-vs-entry (misleading right after a buy); use the portfolio row / dashboard
     "Paper profit" card for bankroll.
+
+Strategy gate (honest workflow):
+  - Regenerate ``data/strategy_gate_report.json`` with
+    ``python scripts/run_honest_eval.py`` (wraps ``simulate_recent_edge.py``).
+  - Set ``REQUIRE_STRATEGY_GATE=1`` or ``--require-strategy-gate`` so **new**
+    entries are blocked unless the report exists and ``"passed": true``.
+  - Stops and state management still run. Use ``--strategy-gate-file`` or
+    ``STRATEGY_GATE_FILE`` to point at a custom report path.
 
 Portfolio kill switch:
   - --max-capital-loss-pct 0.30  (or MAX_CAPITAL_LOSS_PCT): exit the process when
@@ -50,6 +59,8 @@ Entry quality (defaults tuned to reduce taker bleed):
   EDGE_SPREAD_MULT / --edge-spread-mult: extra EV required = mult * spread on the traded leg.
   MIN_EV_SURPLUS_DOLLARS / --min-ev-surplus: require EV minus threshold >= this (skips marginal edges).
   ASK_SLIP_DOLLARS / --ask-slip: add to both asks for EV math + IOC limit prices (slippage stress).
+  MIN_SECONDS_BEFORE_CLOSE / --min-seconds-before-close: skip **new** entries when this many
+  seconds remain (0 = off). Cuts lottery-style noise near expiry; stops still run.
 """
 
 from __future__ import annotations
@@ -87,6 +98,9 @@ from kalshi_client import KalshiClient, public_get
 from live_metrics import LiveMetricsSink
 from paper_broker import PaperBroker
 from sim_session import SimSession
+from strategy_gate import load_strategy_gate
+
+_REPO_ROOT = Path(__file__).resolve().parent
 
 
 def series_from_market_ticker(ticker: str) -> str:
@@ -160,8 +174,10 @@ def resolve_tickers(
         return [single]
     if auto_markets:
         parts = {p.strip().lower() for p in auto_markets.split(",") if p.strip()}
-        if "both" in parts or "btc" in parts or "all" in parts:
+        if "both" in parts:
             parts |= {"15m", "hourly"}
+        if "all" in parts or "btc" in parts:
+            parts |= {"15m", "hourly", "daily"}
         out: list[str] = []
         if "15m" in parts:
             t = best_open_market_ticker("KXBTC15M", public_base=public_base)
@@ -175,6 +191,12 @@ def resolve_tickers(
                 out.append(t)
             else:
                 print("[warn] No open KXBTC (hourly range) market", file=sys.stderr)
+        if "daily" in parts:
+            t = best_open_market_ticker("KXBTCD", public_base=public_base)
+            if t:
+                out.append(t)
+            else:
+                print("[warn] No open KXBTCD (daily) market", file=sys.stderr)
         return out
     if simulate:
         return ["KXBTC15M-SIMDEMO-00"]
@@ -266,6 +288,39 @@ def position_size_signed(pos: dict[str, Any] | None) -> Decimal:
     if not pos:
         return Decimal("0")
     return Decimal(str(pos.get("position_fp") or "0"))
+
+
+def state_from_market_position_row(ticker: str, pos_row: dict[str, Any]) -> dict[str, Any] | None:
+    """
+    Build bot stop/entry state from Kalshi GET /portfolio/positions row.
+    Positive position_fp = YES contracts; negative = NO contracts.
+    entry_ask_dollars = market_exposure_dollars / |contracts| (avg cost; OK for stop math).
+    """
+    fp = Decimal(str(pos_row.get("position_fp") or "0"))
+    if fp == 0:
+        return None
+    side = "yes" if fp > 0 else "no"
+    contracts = abs(fp)
+    exp_raw = pos_row.get("market_exposure_dollars")
+    if exp_raw is None or str(exp_raw).strip() == "":
+        return None
+    try:
+        exposure = Decimal(str(exp_raw))
+    except Exception:
+        return None
+    if contracts <= 0 or exposure <= 0:
+        return None
+    avg = exposure / contracts
+    if avg <= 0:
+        return None
+    return {
+        "ticker": ticker,
+        "side": side,
+        "contracts": format(contracts.quantize(Decimal("0.01")), "f"),
+        "entry_ask_dollars": format(avg.quantize(Decimal("0.0001")), "f"),
+        "order_id": None,
+        "adopted_from_api": True,
+    }
 
 
 def place_ioc(
@@ -416,6 +471,7 @@ def run_cycle(
     state_path: Path,
     dry_run: bool,
     allow_entry: bool,
+    entry_block_event: str | None = None,
     metrics: LiveMetricsSink | None = None,
     max_book_spread: Decimal = Decimal("0"),
     edge_spread_mult: Decimal = Decimal("0"),
@@ -423,6 +479,8 @@ def run_cycle(
     min_ev_surplus: Decimal = Decimal("0"),
     ask_slip_dollars: Decimal = Decimal("0"),
     min_direction_confidence: Decimal = Decimal("0"),
+    adopt_live_position: bool = False,
+    min_seconds_before_close: float = 0.0,
 ) -> None:
     public_base = os.environ.get(
         "KALSHI_PUBLIC_BASE", "https://api.elections.kalshi.com/trade-api/v2"
@@ -495,14 +553,6 @@ def run_cycle(
             if stype == "less" and mkt.get("cap_strike") is not None:
                 fair_yes_eff = Decimal("1") - fair_yes_eff
                 fair_yes_eff = max(Decimal("0.01"), min(Decimal("0.99"), fair_yes_eff))
-            if btc_news_tilt > 0 and sim is None:
-                btc_news_snap = sentiment_for_decision_utc(datetime.now(timezone.utc))
-                sc, nsrc = btc_news_snap
-                fair_yes_eff = apply_btc_news_tilt_to_fair_yes(fair_yes_eff, sc, btc_news_tilt)
-                print(
-                    f"[{ticker}] [btc-news] sentiment={sc:+.3f} source={nsrc} "
-                    f"tilt={btc_news_tilt} fair_yes={fair_yes_eff}"
-                )
         except Exception as e:
             print(f"[{ticker}] [btc-trend] feature error: {e}", file=sys.stderr)
             if metrics is not None:
@@ -522,6 +572,15 @@ def run_cycle(
         fair_yes_eff = fair_yes
     else:
         raise ValueError("fair_yes or at least one fair model is required")
+
+    if btc_news_tilt > 0 and sim is None:
+        btc_news_snap = sentiment_for_decision_utc(datetime.now(timezone.utc))
+        sc, nsrc = btc_news_snap
+        fair_yes_eff = apply_btc_news_tilt_to_fair_yes(fair_yes_eff, sc, btc_news_tilt)
+        print(
+            f"[{ticker}] [btc-news] sentiment={sc:+.3f} source={nsrc} "
+            f"tilt={btc_news_tilt} fair_yes={fair_yes_eff}"
+        )
 
     if sim is not None:
         state = sim.load_state(ticker)
@@ -543,6 +602,32 @@ def run_cycle(
         size = position_size_signed(pos_row)
     else:
         size = Decimal("0")
+
+    if (
+        adopt_live_position
+        and client is not None
+        and sim is None
+        and paper is None
+        and state is None
+        and size != 0
+        and pos_row is not None
+    ):
+        adopted = state_from_market_position_row(ticker, pos_row)
+        if adopted is not None:
+            save_state(state_path, adopted)
+            state = adopted
+            print(
+                f"[state] Adopted live position from API → {state_path} "
+                f"(side={adopted['side']} contracts={adopted['contracts']} "
+                f"entry_ask≈{adopted['entry_ask_dollars']}; use for stop-loss). "
+                "Review if exposure is not your true avg entry."
+            )
+        else:
+            print(
+                f"[warn] --adopt-live-position set but could not build state "
+                f"(need market_exposure_dollars + position_fp). {state_path}",
+                file=sys.stderr,
+            )
 
     print(
         f"[{ticker}] [book] yes bid/ask {ex.best_yes_bid}/{ex.best_yes_ask} "
@@ -593,6 +678,15 @@ def run_cycle(
         if paper is not None:
             u["paper_balance"] = float(paper.balance)
             u["paper_mode"] = True
+        if (
+            client is not None
+            and pos_row is not None
+            and size != 0
+            and not (state and state.get("ticker") == ticker)
+        ):
+            ost = state_from_market_position_row(ticker, pos_row)
+            if ost and ost.get("entry_ask_dollars"):
+                u["orphan_entry_ask_dollars"] = ost["entry_ask_dollars"]
         metrics.update(**u)
 
     _metrics_base()
@@ -651,7 +745,12 @@ def run_cycle(
     # --- Entry: require flat book position ---
     if size != 0:
         if state is None:
-            print("[skip] Non-zero position but no bot state (manual or other algo).")
+            print(
+                "[skip] Non-zero position but no bot state (manual trade, other algo, or "
+                "lost state file). Flatten on Kalshi, or run once with "
+                "`--adopt-live-position` to seed state from API cost (then stop-loss applies). "
+                f"Expected file: {state_path}"
+            )
             hev = "hold_nonbot"
         else:
             hev = "hold"
@@ -661,7 +760,17 @@ def run_cycle(
 
     if not allow_entry:
         if metrics is not None:
-            metrics.update(cycle_event="no_new_entry")
+            metrics.update(cycle_event=entry_block_event or "no_new_entry")
+        return
+
+    if min_seconds_before_close > 0 and sec < min_seconds_before_close:
+        print(
+            f"[{ticker}] [entry] Skip: {sec:.1f}s to close < "
+            f"min_seconds_before_close={min_seconds_before_close:.0f}s "
+            "(model/spread unreliable near expiry)"
+        )
+        if metrics is not None:
+            metrics.update(cycle_event="too_close_to_expiry")
         return
 
     yes_ask_exec = min(Decimal("0.99"), ex.best_yes_ask + ask_slip_dollars)
@@ -902,8 +1011,9 @@ def main() -> None:
     p.add_argument(
         "--auto-markets",
         default=os.environ.get("KALSHI_AUTO_MARKETS") or "15m",
-        help="Discover open BTC markets each poll (default: 15m = KXBTC15M only). "
-        "Also: hourly (KXBTC), both, btc (=both), or comma mix e.g. 15m,hourly",
+        help="Discover open BTC markets each poll (default: 15m = KXBTC15M). "
+        "Tokens: hourly (KXBTC), daily (KXBTCD), both (15m+hourly), all|btc (15m+hourly+daily), "
+        "or comma mix e.g. 15m,hourly,daily",
     )
     p.add_argument(
         "--simulate",
@@ -990,21 +1100,27 @@ def main() -> None:
     )
     p.add_argument("--contracts", type=str, default=os.environ.get("CONTRACTS", "1"))
     p.add_argument(
+        "--min-seconds-before-close",
+        type=float,
+        default=float(os.environ.get("MIN_SECONDS_BEFORE_CLOSE", "90")),
+        help="Skip new entries if fewer seconds remain (0=off). Env MIN_SECONDS_BEFORE_CLOSE.",
+    )
+    p.add_argument(
         "--min-edge",
         type=str,
-        default=os.environ.get("MIN_EDGE_DOLLARS", "0.04"),
+        default=os.environ.get("MIN_EDGE_DOLLARS", "0.05"),
         help="Base min EV $/contract after ask + est fee (before spread cushion)",
     )
     p.add_argument(
         "--max-spread",
         type=str,
-        default=os.environ.get("MAX_BOOK_SPREAD", "0.12"),
+        default=os.environ.get("MAX_BOOK_SPREAD", "0.10"),
         help="Skip side if bid/ask spread exceeds this (0 = disable cap)",
     )
     p.add_argument(
         "--edge-spread-mult",
         type=str,
-        default=os.environ.get("EDGE_SPREAD_MULT", "0.30"),
+        default=os.environ.get("EDGE_SPREAD_MULT", "0.40"),
         help="Extra EV required: mult * (spread on traded leg), on top of --min-edge",
     )
     p.add_argument(
@@ -1036,10 +1152,30 @@ def main() -> None:
         help="Only manage stop / state; do not open new positions",
     )
     p.add_argument(
+        "--require-strategy-gate",
+        action="store_true",
+        help="Block new entries unless STRATEGY_GATE_FILE report has passed=true "
+        "(also set REQUIRE_STRATEGY_GATE=1). Stops still run.",
+    )
+    p.add_argument(
+        "--strategy-gate-file",
+        type=Path,
+        default=None,
+        help="JSON from scripts/run_honest_eval.py / simulate_recent_edge --write-report. "
+        "Default: STRATEGY_GATE_FILE env or data/strategy_gate_report.json",
+    )
+    p.add_argument(
         "--state-dir",
         type=Path,
         default=Path(os.environ.get("BOT_STATE_DIR", "data/bot_state")),
         help="Per-ticker state files: state_<ticker>.json",
+    )
+    p.add_argument(
+        "--adopt-live-position",
+        action="store_true",
+        help="Live only: if missing state file but portfolio has this market's position, "
+        "create state from position_fp + market_exposure_dollars (enables stop-loss). "
+        "Or set BOT_ADOPT_LIVE_POSITION=1.",
     )
     p.add_argument(
         "--metrics-file",
@@ -1053,6 +1189,8 @@ def main() -> None:
         help="Disable writing --metrics-file",
     )
     args = p.parse_args()
+    if os.environ.get("BOT_ADOPT_LIVE_POSITION", "").strip().lower() in ("1", "true", "yes"):
+        args.adopt_live_position = True
 
     if args.btc_trend_model is None and os.environ.get("BTC_TREND_MODEL"):
         args.btc_trend_model = Path(os.environ["BTC_TREND_MODEL"])
@@ -1068,17 +1206,21 @@ def main() -> None:
     if args.min_ev_surplus is not None:
         min_ev_surplus = Decimal(args.min_ev_surplus)
     else:
-        min_ev_surplus = Decimal(os.environ.get("MIN_EV_SURPLUS_DOLLARS", "0.02"))
+        min_ev_surplus = Decimal(os.environ.get("MIN_EV_SURPLUS_DOLLARS", "0.03"))
     if args.min_direction_confidence is not None:
         min_direction_confidence = Decimal(args.min_direction_confidence)
     else:
-        min_direction_confidence = Decimal(os.environ.get("MIN_DIRECTION_CONFIDENCE", "0.62"))
+        min_direction_confidence = Decimal(os.environ.get("MIN_DIRECTION_CONFIDENCE", "0.64"))
     if args.ask_slip is not None:
         ask_slip_dollars = Decimal(args.ask_slip)
     else:
-        ask_slip_dollars = Decimal(os.environ.get("ASK_SLIP_DOLLARS", "0"))
+        ask_slip_dollars = Decimal(os.environ.get("ASK_SLIP_DOLLARS", "0.005"))
     if min_ev_surplus < 0 or ask_slip_dollars < 0:
         print("min-ev-surplus and ask-slip must be >= 0", file=sys.stderr)
+        sys.exit(2)
+    min_seconds_before_close = float(args.min_seconds_before_close)
+    if min_seconds_before_close < 0:
+        print("min-seconds-before-close must be >= 0", file=sys.stderr)
         sys.exit(2)
     if min_direction_confidence < 0 or min_direction_confidence >= 1:
         print("min-direction-confidence must be in [0, 1) (0 disables)", file=sys.stderr)
@@ -1177,6 +1319,7 @@ def main() -> None:
         f"edge_spread_mult={edge_spread_mult} btc_news_tilt={btc_news_tilt or 'off'} "
         f"min_ev_surplus={min_ev_surplus or 'off'} ask_slip={ask_slip_dollars or 'off'} "
         f"min_dir_conf={min_direction_confidence or 'off'} "
+        f"min_sec_to_close={min_seconds_before_close or 'off'} "
         f"max_capital_loss_pct={max_capital_loss_pct or 'off'}"
     )
 
@@ -1208,7 +1351,17 @@ def main() -> None:
             sys.exit(2)
         client = KalshiClient(api_key_id=key_id, private_key_pem_path=key_path, host=host)
 
-    allow_entry = not args.no_entry
+    allow_entry_cli = not args.no_entry
+    require_strategy_gate = bool(args.require_strategy_gate) or (
+        os.environ.get("REQUIRE_STRATEGY_GATE", "").strip().lower() in ("1", "true", "yes")
+    )
+    strategy_gate_path = (
+        args.strategy_gate_file
+        if args.strategy_gate_file is not None
+        else Path(os.environ.get("STRATEGY_GATE_FILE", "data/strategy_gate_report.json"))
+    )
+    if not strategy_gate_path.is_absolute():
+        strategy_gate_path = _REPO_ROOT / strategy_gate_path
 
     metrics_sink: LiveMetricsSink | None = None
     if not args.no_metrics:
@@ -1224,6 +1377,7 @@ def main() -> None:
     )
     last_announced: tuple[str, ...] | None = None
     live_equity_baseline: Decimal | None = None
+    last_strategy_gate_log = 0.0
 
     while True:
         try:
@@ -1241,6 +1395,19 @@ def main() -> None:
                     )
                 except Exception as ex:
                     print(f"[warn] capital guard: could not read baseline balance: {ex}", file=sys.stderr)
+
+            entry_effective = allow_entry_cli
+            entry_block_event: str | None = None
+            if allow_entry_cli and require_strategy_gate:
+                ok_gate, gate_reason, _ = load_strategy_gate(strategy_gate_path)
+                if not ok_gate:
+                    entry_effective = False
+                    entry_block_event = "strategy_gate"
+                    now_l = time.time()
+                    if now_l - last_strategy_gate_log >= 25.0:
+                        print(f"[strategy-gate] {gate_reason}", flush=True)
+                        last_strategy_gate_log = now_l
+
             if rediscover_btc:
                 tickers = resolve_tickers(
                     single=None,
@@ -1287,7 +1454,8 @@ def main() -> None:
                     fee_multiplier=fee_mult,
                     state_path=sp,
                     dry_run=args.dry_run,
-                    allow_entry=allow_entry,
+                    allow_entry=entry_effective,
+                    entry_block_event=entry_block_event,
                     metrics=metrics_sink,
                     max_book_spread=max_book_spread,
                     edge_spread_mult=edge_spread_mult,
@@ -1295,6 +1463,8 @@ def main() -> None:
                     min_ev_surplus=min_ev_surplus,
                     ask_slip_dollars=ask_slip_dollars,
                     min_direction_confidence=min_direction_confidence,
+                    adopt_live_position=bool(args.adopt_live_position),
+                    min_seconds_before_close=min_seconds_before_close,
                 )
                 if metrics_sink is not None:
                     metrics_sink.flush()

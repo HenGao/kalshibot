@@ -1,0 +1,525 @@
+[filters] min_edge=0.02 max_spread=0.10 edge_spread_mult=0.40 btc_news_tilt=off min_ev_surplus=0.03 ask_slip=0.005 min_dir_conf=0.64 min_sec_to_close=90.0 max_capital_loss_pct=off
+[paper] tickers=['KXBTC15M-26APR121530-30'] cash=$50 start=$50 wallet=data\paper_wallet_today.json
+[markets] Active Kalshi BTC tickers: ['KXBTC15M-26APR121530-30']
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2300/0.2400 no bid/ask 0.7600/0.7700 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.21901653663266887 EV/contract yes=-0.0390 no=-0.0063 (est fee/ct yes=0.0130 no=0.0123)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0390 ev_no=-0.0063).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19645925136162357 EV/contract yes=-0.0095 no=-0.0317 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0095 ev_no=-0.0317).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1800 no bid/ask 0.8200/0.8300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19195204038021807 EV/contract yes=-0.0036 no=-0.0367 (est fee/ct yes=0.0106 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0036 ev_no=-0.0367).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2000/0.2100 no bid/ask 0.7900/0.8000 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.20459595814766435 EV/contract yes=-0.0223 no=-0.0206 (est fee/ct yes=0.0119 no=0.0110)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0223 ev_no=-0.0206).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19564289649427 EV/contract yes=-0.0104 no=-0.0308 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0104 ev_no=-0.0308).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19536699882957317 EV/contract yes=-0.0106 no=-0.0306 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0106 ev_no=-0.0306).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19509026356814368 EV/contract yes=-0.0109 no=-0.0303 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0109 ev_no=-0.0303).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19480518310758396 EV/contract yes=-0.0112 no=-0.0300 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0112 ev_no=-0.0300).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1900/0.2000 no bid/ask 0.8000/0.8100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19880075180481244 EV/contract yes=-0.0177 no=-0.0244 (est fee/ct yes=0.0115 no=0.0106)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0177 ev_no=-0.0244).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1942347573350939 EV/contract yes=-0.0118 no=-0.0294 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0118 ev_no=-0.0294).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19394161653427797 EV/contract yes=-0.0121 no=-0.0291 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0121 ev_no=-0.0291).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1800 no bid/ask 0.8200/0.8300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.18945088974087357 EV/contract yes=-0.0061 no=-0.0342 (est fee/ct yes=0.0106 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0061 ev_no=-0.0342).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1800 no bid/ask 0.8200/0.8300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.18915981288960124 EV/contract yes=-0.0064 no=-0.0339 (est fee/ct yes=0.0106 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0064 ev_no=-0.0339).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1800 no bid/ask 0.8200/0.8300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.18886278395110476 EV/contract yes=-0.0067 no=-0.0336 (est fee/ct yes=0.0106 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0067 ev_no=-0.0336).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1800 no bid/ask 0.8200/0.8300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1885619522725742 EV/contract yes=-0.0070 no=-0.0333 (est fee/ct yes=0.0106 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0070 ev_no=-0.0333).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1900/0.2000 no bid/ask 0.8000/0.8100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.19668497179181305 EV/contract yes=-0.0198 no=-0.0223 (est fee/ct yes=0.0115 no=0.0106)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0198 ev_no=-0.0223).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2600/0.2700 no bid/ask 0.7300/0.7400 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.22801551366845021 EV/contract yes=-0.0610 no=0.0137 (est fee/ct yes=0.0140 no=0.0133)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0610 ev_no=0.0137).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2422630442368948 EV/contract yes=-0.0776 no=0.0284 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2700/0.2800 no bid/ask 0.7200/0.7300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2320913487768981 EV/contract yes=-0.0672 no=0.0192 (est fee/ct yes=0.0143 no=0.0137)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0672 ev_no=0.0192).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2700/0.2800 no bid/ask 0.7200/0.7300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.23171409937478094 EV/contract yes=-0.0676 no=0.0196 (est fee/ct yes=0.0143 no=0.0137)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0676 ev_no=0.0196).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2700/0.2800 no bid/ask 0.7200/0.7300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2313368025464678 EV/contract yes=-0.0680 no=0.0200 (est fee/ct yes=0.0143 no=0.0137)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0680 ev_no=0.0200).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2700/0.2800 no bid/ask 0.7200/0.7300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.23095959471049252 EV/contract yes=-0.0683 no=0.0203 (est fee/ct yes=0.0143 no=0.0137)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0683 ev_no=0.0203).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2700/0.2800 no bid/ask 0.7200/0.7300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.23057839459640123 EV/contract yes=-0.0687 no=0.0207 (est fee/ct yes=0.0143 no=0.0137)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0687 ev_no=0.0207).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2800/0.2900 no bid/ask 0.7100/0.7200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2350265946495471 EV/contract yes=-0.0746 no=0.0260 (est fee/ct yes=0.0146 no=0.0140)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3100/0.3200 no bid/ask 0.6800/0.6900 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.24954002570082992 EV/contract yes=-0.0909 no=0.0406 (est fee/ct yes=0.0154 no=0.0149)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3100/0.3200 no bid/ask 0.6800/0.6900 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2491096539572844 EV/contract yes=-0.0913 no=0.0410 (est fee/ct yes=0.0154 no=0.0149)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3100/0.3200 no bid/ask 0.6800/0.6900 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.24868465256261704 EV/contract yes=-0.0917 no=0.0414 (est fee/ct yes=0.0154 no=0.0149)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3100/0.3300 no bid/ask 0.6700/0.6900 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.2533393716528341 EV/contract yes=-0.0973 no=0.0368 (est fee/ct yes=0.0156 no=0.0149)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0280 thr_no=0.0280).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3200/0.3300 no bid/ask 0.6700/0.6800 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.25290134648657603 EV/contract yes=-0.0977 no=0.0469 (est fee/ct yes=0.0156 no=0.0152)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3300/0.3400 no bid/ask 0.6600/0.6700 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2576095013987719 EV/contract yes=-0.1033 no=0.0520 (est fee/ct yes=0.0159 no=0.0154)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3100/0.3200 no bid/ask 0.6800/0.6900 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.24693635969848085 EV/contract yes=-0.0935 no=0.0432 (est fee/ct yes=0.0154 no=0.0149)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.3000/0.3200 no bid/ask 0.6800/0.7000 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.2464689421960402 EV/contract yes=-0.0939 no=0.0339 (est fee/ct yes=0.0154 no=0.0146)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0280 thr_no=0.0280).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.23610445149278453 EV/contract yes=-0.0838 no=0.0346 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3100 no bid/ask 0.6900/0.7100 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.2405554403775684 EV/contract yes=-0.0896 no=0.0301 (est fee/ct yes=0.0152 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0280 thr_no=0.0280).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2351494120512399 EV/contract yes=-0.0848 no=0.0356 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2346843122672768 EV/contract yes=-0.0852 no=0.0360 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2800/0.2900 no bid/ask 0.7100/0.7200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.22939064101525183 EV/contract yes=-0.0802 no=0.0316 (est fee/ct yes=0.0146 no=0.0140)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2700/0.2800 no bid/ask 0.7200/0.7300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.22417284945875945 EV/contract yes=-0.0751 no=0.0271 (est fee/ct yes=0.0143 no=0.0137)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2800/0.3000 no bid/ask 0.7000/0.7200 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.23322084719361366 EV/contract yes=-0.0867 no=0.0278 (est fee/ct yes=0.0149 no=0.0140)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0280 thr_no=0.0280 ev_yes=-0.0867 ev_no=0.0278).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2600/0.2800 no bid/ask 0.7200/0.7400 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.223184917745514 EV/contract yes=-0.0761 no=0.0185 (est fee/ct yes=0.0143 no=0.0133)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0280 thr_no=0.0280 ev_yes=-0.0761 ev_no=0.0185).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2600/0.2900 no bid/ask 0.7100/0.7400 spreads yes=0.0300 no=0.0300 pos=0
+[edge] fair_yes=0.227427199779759 EV/contract yes=-0.0822 no=0.0143 (est fee/ct yes=0.0146 no=0.0133)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0320 thr_no=0.0320 ev_yes=-0.0822 ev_no=0.0143).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2800/0.2900 no bid/ask 0.7100/0.7200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2269234961733974 EV/contract yes=-0.0827 no=0.0341 (est fee/ct yes=0.0146 no=0.0140)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.23118845064365418 EV/contract yes=-0.0887 no=0.0395 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.2306416373806112 EV/contract yes=-0.0893 no=0.0401 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.2900/0.3000 no bid/ask 0.7000/0.7100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.23011007588656437 EV/contract yes=-0.0898 no=0.0406 (est fee/ct yes=0.0149 no=0.0143)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1200/0.1300 no bid/ask 0.8700/0.8800 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1582432099264389 EV/contract yes=0.0150 no=-0.0504 (est fee/ct yes=0.0082 no=0.0072)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=0.0150 ev_no=-0.0504).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1200/0.1300 no bid/ask 0.8700/0.8800 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.15782744069444457 EV/contract yes=0.0146 no=-0.0500 (est fee/ct yes=0.0082 no=0.0072)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=0.0146 ev_no=-0.0500).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1000/0.1100 no bid/ask 0.8900/0.9000 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1503167195378701 EV/contract yes=0.0281 no=-0.0614 (est fee/ct yes=0.0072 no=0.0061)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0840/0.0970 no bid/ask 0.9030/0.9160 spreads yes=0.0130 no=0.0130 pos=0
+[edge] fair_yes=0.14545229525608885 EV/contract yes=0.0370 no=-0.0716 (est fee/ct yes=0.0065 no=0.0051)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0252 thr_no=0.0252).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1300/0.1400 no bid/ask 0.8600/0.8700 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1600921386430714 EV/contract yes=0.0064 no=-0.0428 (est fee/ct yes=0.0087 no=0.0077)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=0.0064 ev_no=-0.0428).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1300/0.1400 no bid/ask 0.8600/0.8700 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1596416983563908 EV/contract yes=0.0059 no=-0.0423 (est fee/ct yes=0.0087 no=0.0077)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=0.0059 ev_no=-0.0423).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1300/0.1400 no bid/ask 0.8600/0.8700 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.15917326640523444 EV/contract yes=0.0055 no=-0.0419 (est fee/ct yes=0.0087 no=0.0077)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=0.0055 ev_no=-0.0419).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1600/0.1700 no bid/ask 0.8300/0.8400 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.16982174315339646 EV/contract yes=-0.0154 no=-0.0240 (est fee/ct yes=0.0102 no=0.0092)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0154 ev_no=-0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1900/0.2000 no bid/ask 0.8000/0.8100 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.181041181314879 EV/contract yes=-0.0355 no=-0.0066 (est fee/ct yes=0.0115 no=0.0106)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0355 ev_no=-0.0066).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.2000 no bid/ask 0.8000/0.8200 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.1804990420016091 EV/contract yes=-0.0360 no=-0.0157 (est fee/ct yes=0.0115 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0280 thr_no=0.0280 ev_yes=-0.0360 ev_no=-0.0157).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.17596909295497265 EV/contract yes=-0.0300 no=-0.0112 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0300 ev_no=-0.0112).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1800 no bid/ask 0.8200/0.8300 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.17150689513005452 EV/contract yes=-0.0241 no=-0.0162 (est fee/ct yes=0.0106 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0241 ev_no=-0.0162).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.1748055926409618 EV/contract yes=-0.0312 no=-0.0100 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0312 ev_no=-0.0100).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1700/0.1900 no bid/ask 0.8100/0.8300 spreads yes=0.0200 no=0.0200 pos=0
+[edge] fair_yes=0.17421996938886336 EV/contract yes=-0.0318 no=-0.0189 (est fee/ct yes=0.0110 no=0.0097)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0280 thr_no=0.0280 ev_yes=-0.0318 ev_no=-0.0189).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.1800/0.1900 no bid/ask 0.8100/0.8200 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.17362666866793947 EV/contract yes=-0.0324 no=-0.0088 (est fee/ct yes=0.0110 no=0.0102)
+[entry] No side meets spread-adjusted edge (thr_yes=0.0240 thr_no=0.0240 ev_yes=-0.0324 ev_no=-0.0088).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0600/0.0620 no bid/ask 0.9380/0.9400 spreads yes=0.0020 no=0.0020 pos=0
+[edge] fair_yes=0.12882851040738216 EV/contract yes=0.0574 no=-0.0775 (est fee/ct yes=0.0044 no=0.0037)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.12882851040738216)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0720/0.0780 no bid/ask 0.9220/0.9280 spreads yes=0.0060 no=0.0060 pos=0
+[edge] fair_yes=0.13324911332258813 EV/contract yes=0.0448 no=-0.0706 (est fee/ct yes=0.0054 no=0.0044)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0224 thr_no=0.0224).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0740/0.0800 no bid/ask 0.9200/0.9260 spreads yes=0.0060 no=0.0060 pos=0
+[edge] fair_yes=0.13336104810619842 EV/contract yes=0.0429 no=-0.0689 (est fee/ct yes=0.0055 no=0.0045)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0224 thr_no=0.0224).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0650/0.0750 no bid/ask 0.9250/0.9350 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.13127507607111313 EV/contract yes=0.0461 no=-0.0753 (est fee/ct yes=0.0052 no=0.0040)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0490/0.0610 no bid/ask 0.9390/0.9510 spreads yes=0.0120 no=0.0120 pos=0
+[edge] fair_yes=0.1264854392034254 EV/contract yes=0.0561 no=-0.0855 (est fee/ct yes=0.0044 no=0.0030)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.1264854392034254)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0510/0.0600 no bid/ask 0.9400/0.9490 spreads yes=0.0090 no=0.0090 pos=0
+[edge] fair_yes=0.12561925811941815 EV/contract yes=0.0563 no=-0.0827 (est fee/ct yes=0.0043 no=0.0031)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.12561925811941815)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0560/0.0660 no bid/ask 0.9340/0.9440 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.12680578364241035 EV/contract yes=0.0511 no=-0.0792 (est fee/ct yes=0.0047 no=0.0034)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0240 thr_no=0.0240).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0700/0.0710 no bid/ask 0.9290/0.9300 spreads yes=0.0010 no=0.0010 pos=0
+[edge] fair_yes=0.1276859210004606 EV/contract yes=0.0467 no=-0.0670 (est fee/ct yes=0.0050 no=0.0043)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0204 thr_no=0.0204).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0650/0.0830 no bid/ask 0.9170/0.9350 spreads yes=0.0180 no=0.0180 pos=0
+[edge] fair_yes=0.1307026843671338 EV/contract yes=0.0370 no=-0.0747 (est fee/ct yes=0.0057 no=0.0040)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0272 thr_no=0.0272).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0530/0.0750 no bid/ask 0.9250/0.9470 spreads yes=0.0220 no=0.0220 pos=0
+[edge] fair_yes=0.12758872938858806 EV/contract yes=0.0424 no=-0.0828 (est fee/ct yes=0.0052 no=0.0032)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0288 thr_no=0.0288).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0530/0.0770 no bid/ask 0.9230/0.9470 spreads yes=0.0240 no=0.0240 pos=0
+[edge] fair_yes=0.12749227784576891 EV/contract yes=0.0402 no=-0.0827 (est fee/ct yes=0.0053 no=0.0032)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0296 thr_no=0.0296).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0570/0.0600 no bid/ask 0.9400/0.9430 spreads yes=0.0030 no=0.0030 pos=0
+[edge] fair_yes=0.12181597715725007 EV/contract yes=0.0525 no=-0.0733 (est fee/ct yes=0.0043 no=0.0035)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.12181597715725007)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0430/0.0500 no bid/ask 0.9500/0.9570 spreads yes=0.0070 no=0.0070 pos=0
+[edge] fair_yes=0.118300509192028 EV/contract yes=0.0596 no=-0.0829 (est fee/ct yes=0.0037 no=0.0026)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.118300509192028)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0380/0.0480 no bid/ask 0.9520/0.9620 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.11704860658027426 EV/contract yes=0.0604 no=-0.0863 (est fee/ct yes=0.0036 no=0.0023)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.11704860658027426)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0320/0.0390 no bid/ask 0.9610/0.9680 spreads yes=0.0070 no=0.0070 pos=0
+[edge] fair_yes=0.11381266366187638 EV/contract yes=0.0668 no=-0.0887 (est fee/ct yes=0.0030 no=0.0019)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.11381266366187638)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0460/0.0500 no bid/ask 0.9500/0.9540 spreads yes=0.0040 no=0.0040 pos=0
+[edge] fair_yes=0.1160840501539791 EV/contract yes=0.0574 no=-0.0779 (est fee/ct yes=0.0037 no=0.0028)
+[entry] Skip: direction confidence (YES needs fair_yes>=0.64, NO needs fair_yes<=0.36; fair_yes=0.1160840501539791)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0740/0.0880 no bid/ask 0.9120/0.9260 spreads yes=0.0140 no=0.0140 pos=0
+[edge] fair_yes=0.12626089148770225 EV/contract yes=0.0273 no=-0.0618 (est fee/ct yes=0.0060 no=0.0045)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0256 thr_no=0.0256).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0900/0.0940 no bid/ask 0.9060/0.9100 spreads yes=0.0040 no=0.0040 pos=0
+[edge] fair_yes=0.12721575098241863 EV/contract yes=0.0219 no=-0.0477 (est fee/ct yes=0.0063 no=0.0055)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0216 thr_no=0.0216).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0800/0.0820 no bid/ask 0.9180/0.9200 spreads yes=0.0020 no=0.0020 pos=0
+[edge] fair_yes=0.12264198127560387 EV/contract yes=0.0300 no=-0.0525 (est fee/ct yes=0.0056 no=0.0049)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0208 thr_no=0.0208).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0600/0.0750 no bid/ask 0.9250/0.9400 spreads yes=0.0150 no=0.0150 pos=0
+[edge] fair_yes=0.1196742810070922 EV/contract yes=0.0345 no=-0.0684 (est fee/ct yes=0.0052 no=0.0037)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0260 thr_no=0.0260).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0500/0.0660 no bid/ask 0.9340/0.9500 spreads yes=0.0160 no=0.0160 pos=0
+[edge] fair_yes=0.11620735362618255 EV/contract yes=0.0405 no=-0.0743 (est fee/ct yes=0.0047 no=0.0031)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0264 thr_no=0.0264).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0450/0.0590 no bid/ask 0.9410/0.9550 spreads yes=0.0140 no=0.0140 pos=0
+[edge] fair_yes=0.11328753439311989 EV/contract yes=0.0451 no=-0.0760 (est fee/ct yes=0.0042 no=0.0027)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0256 thr_no=0.0256).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0400/0.0550 no bid/ask 0.9450/0.9600 spreads yes=0.0150 no=0.0150 pos=0
+[edge] fair_yes=0.11114897578229337 EV/contract yes=0.0471 no=-0.0785 (est fee/ct yes=0.0040 no=0.0024)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0260 thr_no=0.0260).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0700/0.0750 no bid/ask 0.9250/0.9300 spreads yes=0.0050 no=0.0050 pos=0
+[edge] fair_yes=0.11546319473531248 EV/contract yes=0.0303 no=-0.0548 (est fee/ct yes=0.0052 no=0.0043)
+[entry] Skip: EV surplus below min_ev_surplus=0.0300 (thr_yes=0.0220 thr_no=0.0220).
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0620/0.0800 no bid/ask 0.9200/0.9380 spreads yes=0.0180 no=0.0180 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 85.6s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0600/0.0680 no bid/ask 0.9320/0.9400 spreads yes=0.0080 no=0.0080 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 79.4s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0400/0.0490 no bid/ask 0.9510/0.9600 spreads yes=0.0090 no=0.0090 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 73.2s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0130/0.0150 no bid/ask 0.9850/0.9870 spreads yes=0.0020 no=0.0020 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 66.6s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0020/0.0050 no bid/ask 0.9950/0.9980 spreads yes=0.0030 no=0.0030 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 60.3s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/0.0010 no bid/ask 0.9990/1 spreads yes=0.0010 no=0.0010 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 54.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0010/0.0020 no bid/ask 0.9980/0.9990 spreads yes=0.0010 no=0.0010 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 47.8s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0010/0.0020 no bid/ask 0.9980/0.9990 spreads yes=0.0010 no=0.0010 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 41.4s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0.0010/0.0020 no bid/ask 0.9980/0.9990 spreads yes=0.0010 no=0.0010 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 35.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/0.0020 no bid/ask 0.9980/1 spreads yes=0.0020 no=0.0020 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 28.7s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/0.0020 no bid/ask 0.9980/1 spreads yes=0.0020 no=0.0020 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 22.5s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/0.0010 no bid/ask 0.9990/1 spreads yes=0.0010 no=0.0010 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 16.2s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/0.0010 no bid/ask 0.9990/1 spreads yes=0.0010 no=0.0010 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 9.5s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/0.0020 no bid/ask 0.9980/1 spreads yes=0.0020 no=0.0020 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 3.2s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/1 no bid/ask 0/1 spreads yes=1 no=1 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 0.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/1 no bid/ask 0/1 spreads yes=1 no=1 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 0.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/1 no bid/ask 0/1 spreads yes=1 no=1 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 0.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/1 no bid/ask 0/1 spreads yes=1 no=1 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 0.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[fees] KXBTC15M-26APR121530-30 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121530-30] [book] yes bid/ask 0/1 no bid/ask 0/1 spreads yes=1 no=1 pos=0
+[KXBTC15M-26APR121530-30] [entry] Skip: 0.0s to close < min_seconds_before_close=90s (model/spread unreliable near expiry)
+[paper] NAV $50.0000 (cash $50.0000) PnL vs start $0.0000 (started $50)
+[markets] Active Kalshi BTC tickers: ['KXBTC15M-26APR121545-45']
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4500/0.4600 no bid/ask 0.5400/0.5500 spreads yes=0.0100 no=0.0100 pos=0
+[edge] fair_yes=0.3498462732551544 EV/contract yes=-0.1327 no=0.0779 (est fee/ct yes=0.0175 no=0.0173)
+[entry] IOC buy no count=1 EV~0.0779/contract
+[paper] Filled 1; cash balance $49.4277
+[paper] NAV $49.9677 (cash $49.4277) PnL vs start $-0.0323 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4600/0.4700 no bid/ask 0.5300/0.5400 spreads yes=0.0100 no=0.0100 pos=-1
+[paper] NAV $49.9577 (cash $49.4277) PnL vs start $-0.0423 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4400/0.4600 no bid/ask 0.5400/0.5600 spreads yes=0.0200 no=0.0200 pos=-1
+[paper] NAV $49.9677 (cash $49.4277) PnL vs start $-0.0323 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4400/0.4500 no bid/ask 0.5500/0.5600 spreads yes=0.0100 no=0.0100 pos=-1
+[paper] NAV $49.9777 (cash $49.4277) PnL vs start $-0.0223 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4300/0.4400 no bid/ask 0.5600/0.5700 spreads yes=0.0100 no=0.0100 pos=-1
+[paper] NAV $49.9877 (cash $49.4277) PnL vs start $-0.0123 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4200/0.4300 no bid/ask 0.5700/0.5800 spreads yes=0.0100 no=0.0100 pos=-1
+[paper] NAV $49.9977 (cash $49.4277) PnL vs start $-0.0023 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07
+[KXBTC15M-26APR121545-45] [book] yes bid/ask 0.4100/0.4300 no bid/ask 0.5700/0.5900 spreads yes=0.0200 no=0.0200 pos=-1
+[paper] NAV $49.9977 (cash $49.4277) PnL vs start $-0.0023 (started $50)
+[fees] KXBTC15M-26APR121545-45 series=KXBTC15M fee_multiplier=1 coeff=0.07

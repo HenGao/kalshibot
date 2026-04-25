@@ -77,6 +77,15 @@ class LiveMetricsSink:
         entry = row.get("bot_entry_ask")
         entry_d = Decimal(str(entry)) if entry is not None else None
 
+        orphan_entry = row.get("orphan_entry_ask_dollars")
+        need_orphan = abs_pos > 0 and not (
+            side in ("yes", "no") and contracts > 0 and entry_d is not None
+        )
+        if need_orphan and orphan_entry is not None:
+            side = "yes" if pos > 0 else "no"
+            contracts = abs_pos
+            entry_d = Decimal(str(orphan_entry))
+
         yb = Decimal(str(row.get("best_yes_bid") or "0"))
         nb = Decimal(str(row.get("best_no_bid") or "0"))
 
@@ -125,5 +134,7 @@ class LiveMetricsSink:
         for k in ("btc_spot_usd", "kalshi_target_usd", "btc_target_source"):
             if k in row and row[k] is not None:
                 out[k] = row[k]
+        if row.get("orphan_entry_ask_dollars") is not None:
+            out["orphan_entry_ask_dollars"] = float(row["orphan_entry_ask_dollars"])
         with self.path.open("a", encoding="utf-8") as f:
             f.write(json.dumps(out) + "\n")

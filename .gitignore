@@ -9,4 +9,5 @@ data/bot_state/
 data/paper_wallet.json
 data/test_sim_metrics.jsonl
 data/live_metrics.jsonl
+data/strategy_gate_report.json
 .env

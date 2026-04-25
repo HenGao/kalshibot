@@ -292,5 +292,11 @@
     "snippet_len": 0,
     "source": "coindesk_rss",
     "n_items": 0
+  },
+  "2026-04-12_493340": {
+    "score": -0.3571428571428571,
+    "snippet_len": 1980,
+    "source": "coindesk_rss",
+    "n_items": 8
   }
 }

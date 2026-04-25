@@ -21,9 +21,11 @@ quick smoke test; 0 = no cap (can take a long time).
 from __future__ import annotations
 
 import argparse
+import json
 import math
 import sys
 import time
+from datetime import datetime, timezone
 from decimal import Decimal
 from pathlib import Path
 from typing import Any, Iterator
@@ -174,6 +176,24 @@ def main() -> None:
         default=3600.0,
         help="Ignore trades earlier than this many seconds before close",
     )
+    p.add_argument(
+        "--write-report",
+        type=Path,
+        default=None,
+        help="Write machine-readable gate JSON (for edge_bot --require-strategy-gate)",
+    )
+    p.add_argument(
+        "--gate-min-avg-pnl-per-trade",
+        type=float,
+        default=0.0,
+        help="Report passed=True only if avg PnL/trade >= this (and min trades met)",
+    )
+    p.add_argument(
+        "--gate-min-trades",
+        type=int,
+        default=50,
+        help="Report passed=True only if at least this many trades in sample",
+    )
     args = p.parse_args()
 
     public_base = "https://api.elections.kalshi.com/trade-api/v2"
@@ -308,9 +328,50 @@ def main() -> None:
     else:
         print("No trades met min_edge in sample.")
     print(
-        "\nCaveats: tape mid ≠ full book; no stop-loss; same model used for hourly unless "
-        "--model-hourly set; past performance ≠ future."
+        "\nCaveats: tape mid != full book; no stop-loss; same model used for hourly unless "
+        "--model-hourly set; past performance != future."
     )
+
+    avg_pnl = (total / len(pnls)) if pnls else None
+    passed = (
+        n_trade >= args.gate_min_trades
+        and avg_pnl is not None
+        and avg_pnl >= args.gate_min_avg_pnl_per_trade
+    )
+    report: dict[str, object] = {
+        "schema": "strategy_gate_report/v1",
+        "generated_at": datetime.now(timezone.utc).isoformat(),
+        "passed": passed,
+        "n_trades": n_trade,
+        "n_skip_rule": n_skip_rule,
+        "n_skip_data": n_skip_data,
+        "total_pnl": total,
+        "avg_pnl_per_trade": avg_pnl,
+        "by_series": {
+            s: {"n": len(xs), "subtotal": sum(xs), "avg": (sum(xs) / len(xs) if xs else None)}
+            for s, xs in by_series.items()
+            if xs
+        },
+        "criteria": {
+            "min_avg_pnl_per_trade": args.gate_min_avg_pnl_per_trade,
+            "min_trades": args.gate_min_trades,
+        },
+        "args": {
+            "days": args.days,
+            "max_markets_per_series": args.max_markets_per_series,
+            "target_sec": args.target_sec,
+            "half_spread": args.half_spread,
+            "min_edge": args.min_edge,
+            "fee_coefficient": args.fee_coefficient,
+            "fee_multiplier": args.fee_multiplier,
+            "model": str(args.model),
+            "model_hourly": str(args.model_hourly) if args.model_hourly else None,
+        },
+    }
+    if args.write_report is not None:
+        args.write_report.parent.mkdir(parents=True, exist_ok=True)
+        args.write_report.write_text(json.dumps(report, indent=2), encoding="utf-8")
+        print(f"\nWrote gate report: {args.write_report}  passed={passed}", flush=True)
 
 
 if __name__ == "__main__":

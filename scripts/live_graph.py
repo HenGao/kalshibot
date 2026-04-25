@@ -61,8 +61,8 @@ def main() -> None:
             "matplotlib is required: pip install matplotlib\n" + str(e)
         ) from e
 
-    fig, (ax_eq, ax_px) = plt.subplots(2, 1, figsize=(10, 7), sharex=True)
-    fig.suptitle("Kalshi bot — equity & YES mid (multi-ticker)")
+    fig, (ax_eq, ax_px, ax_fair) = plt.subplots(3, 1, figsize=(10, 10), sharex=True)
+    fig.suptitle("Kalshi bot — equity, YES mid, fair P(YES) (multi-ticker)")
 
     (eq_line,) = ax_eq.plot([], [], color="#2ecc71", linewidth=1.5, label="equity ($)")
     (rl_line,) = ax_eq.plot([], [], color="#3498db", linewidth=1, alpha=0.7, label="realized ($)")
@@ -90,15 +90,20 @@ def main() -> None:
         if t0[0] is None:
             t0[0] = float(rows[0]["ts"])
 
-        t_rel = [float(r["ts"]) - t0[0] for r in rows]
-        eq = [float(r["equity"]) for r in rows]
-        rl = [float(r["realized_pnl"]) for r in rows]
+        mrows = [
+            r
+            for r in rows
+            if r.get("cycle_event") != "paper_portfolio" and r.get("equity") is not None
+        ]
+        t_rel = [float(r["ts"]) - t0[0] for r in mrows]
+        eq = [float(r["equity"]) for r in mrows]
+        rl = [float(r["realized_pnl"]) for r in mrows]
         eq_line.set_data(t_rel, eq)
         rl_line.set_data(t_rel, rl)
 
         trade_x.clear()
         trade_y.clear()
-        for r, tx in zip(rows, t_rel):
+        for r, tx in zip(mrows, t_rel):
             ev = r.get("cycle_event")
             if ev in ("dry_entry", "filled", "no_fill"):
                 trade_x.append(tx)
@@ -109,14 +114,23 @@ def main() -> None:
             scat.set_offsets([])
 
         per_ticker: dict[str, tuple[list[float], list[float]]] = defaultdict(lambda: ([], []))
-        for r, tx in zip(rows, t_rel):
+        fair_ticker: dict[str, tuple[list[float], list[float]]] = defaultdict(lambda: ([], []))
+        t_all = [float(r["ts"]) - t0[0] for r in rows]
+        for r, tx in zip(rows, t_all):
             tk = str(r.get("ticker") or "_")
+            if tk in ("_paper_", "_"):
+                continue
+            if r.get("yes_mid") is None:
+                continue
             per_ticker[tk][0].append(tx)
             per_ticker[tk][1].append(float(r["yes_mid"]))
+            fy = r.get("fair_yes")
+            if fy is not None:
+                fair_ticker[tk][0].append(tx)
+                fair_ticker[tk][1].append(float(fy))
 
         ax_px.clear()
         ax_px.set_ylabel("YES mid")
-        ax_px.set_xlabel("time (session seconds)")
         ax_px.grid(True, alpha=0.3)
         mid_artists = []
         for i, (tk, (xs, ys)) in enumerate(sorted(per_ticker.items())):
@@ -130,11 +144,30 @@ def main() -> None:
             mid_artists.append(ln)
         ax_px.legend(loc="upper left", fontsize=7)
 
-        for ax in (ax_eq, ax_px):
+        ax_fair.clear()
+        ax_fair.set_ylabel("fair P(YES)")
+        ax_fair.set_xlabel("time (session seconds)")
+        ax_fair.set_ylim(0, 1)
+        ax_fair.grid(True, alpha=0.3)
+        fair_artists = []
+        for i, (tk, (xs, ys)) in enumerate(sorted(fair_ticker.items())):
+            (ln,) = ax_fair.plot(
+                xs,
+                ys,
+                color=colors[i % len(colors)],
+                linewidth=1.2,
+                linestyle="--",
+                label=tk[:32] + ("…" if len(tk) > 32 else ""),
+            )
+            fair_artists.append(ln)
+        ax_fair.legend(loc="upper left", fontsize=7)
+
+        for ax in (ax_eq, ax_px, ax_fair):
             ax.relim()
             ax.autoscale_view()
+        ax_fair.set_ylim(0, 1)
 
-        return (eq_line, rl_line, scat, *mid_artists)
+        return (eq_line, rl_line, scat, *mid_artists, *fair_artists)
 
     _ = FuncAnimation(fig, update, interval=args.interval_ms, blit=False, cache_frame_data=False)
     plt.tight_layout()
